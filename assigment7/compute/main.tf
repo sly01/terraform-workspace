@@ -23,7 +23,7 @@ resource "aws_elb" "elb-web" {
 
 resource "aws_instance" "web" {
   count                  = "${var.instance-count}"
-  ami                    = "ami-0ea75b87734858a94"
+  ami                    = "ami-0f8969098ad3dfd44"
   instance_type          = "t2.micro"
   vpc_security_group_ids = ["${var.instance-sg}"]
   subnet_id              = "${var.private_subnets[count.index]}"
