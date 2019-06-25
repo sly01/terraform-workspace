@@ -104,3 +104,23 @@ resource "aws_security_group" "elb-to-ec2" {
     cidr_blocks = ["0.0.0.0/0"]
   }
 }
+
+resource "aws_security_group" "ansible-management-sg" {
+  name        = "ansible-management-sg"
+  description = "Ansible controller node allowed from other vpc"
+  vpc_id      = "${aws_vpc.demovpc.id}"
+
+  ingress {
+    from_port   = 22
+    to_port     = 22
+    protocol    = "tcp"
+    cidr_blocks = ["172.31.0.0/16"]
+  }
+
+  egress {
+    from_port   = 0
+    to_port     = 0
+    protocol    = "-1"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+}

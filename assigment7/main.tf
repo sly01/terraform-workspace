@@ -14,10 +14,14 @@ module "networking" {
 
 #Deploy compute
 module "computing" {
-  source          = "./compute"
-  instance-count  = "${var.instance-count}"
-  public_subnets  = "${module.networking.public_subnets}"
-  private_subnets = "${module.networking.private_subnets}"
-  elb-sg          = "${module.networking.elb-sg}"
-  instance-sg     = "${module.networking.elb-to-ec2}"
+  source                  = "./compute"
+  instance-count          = "${var.instance-count}"
+  elb_healthy_threshold   = "${var.elb_healthy_threshold}"
+  elb_unhealthy_threshold = "${var.elb_unhealthy_threshold}"
+  public_subnets          = "${module.networking.public_subnets}"
+  private_subnets         = "${module.networking.private_subnets}"
+  elb-sg                  = "${module.networking.elb-sg}"
+  instance-sg             = "${module.networking.elb-to-ec2}"
+  public_key              = "${var.public_key}"
+  ansible-management-sg   = "${module.networking.ansible-management-sg}"
 }
