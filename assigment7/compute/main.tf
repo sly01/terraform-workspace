@@ -1,9 +1,9 @@
 resource "aws_elb" "elb-web" {
   name = "demo-elb"
 
-  subnets         = ["${var.public_subnets}"]
+  subnets         = "${var.public_subnets}"
   security_groups = ["${var.elb-sg}"]
-  instances       = ["${aws_instance.web.*.id}"]
+  instances       = "${aws_instance.web.*.id}"
 
   listener {
     instance_port     = 80
