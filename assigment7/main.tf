@@ -4,7 +4,7 @@ provider "aws" {
 
 #Deploy networking
 module "networking" {
-  source               = "./network"
+  source               = "git::https://github.com/sly01/terraform-workshop-modules//network?ref=v0.0.1"
   cidr_block           = "${var.cidr_block}"
   private_subnet_count = "${var.private_subnet_count}"
   private_cidrs        = "${var.private_cidrs}"
@@ -14,7 +14,7 @@ module "networking" {
 
 #Deploy compute
 module "computing" {
-  source                  = "./compute"
+  source                  = "git::https://github.com/sly01/terraform-workshop-modules//compute?ref=v0.0.1"
   instance-count          = "${var.instance-count}"
   elb_healthy_threshold   = "${var.elb_healthy_threshold}"
   elb_unhealthy_threshold = "${var.elb_unhealthy_threshold}"
