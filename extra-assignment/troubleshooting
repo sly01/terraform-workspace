@@ -1,0 +1,4 @@
+git clone https://github.com/linuxacademy/content-terraform-labs.git troubleshooting
+cd troubleshooting
+git checkout troubleshooting-aws
+terraform init
