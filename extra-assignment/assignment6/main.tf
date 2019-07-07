@@ -15,7 +15,7 @@ resource "aws_vpc" "demovpc" {
 resource "aws_internet_gateway" "demoigw" {
   vpc_id = "${aws_vpc.demovpc.id}"
 
-  tags {
+  tags = {
     Name = "demoigw"
   }
 }
@@ -173,6 +173,12 @@ resource "aws_instance" "web2" {
 
   vpc_security_group_ids = ["${aws_security_group.elb-to-ec2.id}"]
   subnet_id              = "${aws_subnet.private2.id}"
+}
+
+resource "null_resource" "null_id" {
+  provisioner "local-exec" {
+    command = "echo LoadBalancer: ${aws_elb.elb-web.dns_name} >> lbaddress.txt"
+  }
 }
 
 output "elb-endpoint" {
