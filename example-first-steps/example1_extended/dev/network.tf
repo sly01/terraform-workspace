@@ -59,3 +59,22 @@ resource "aws_elb" "example_elb" {
     lb_protocol       = "http"
   }
 }
+
+#--------- ROUTE53 --------
+
+resource "aws_route53_zone" "primary" {
+  name              = "${var.domain_name}.tk"
+  delegation_set_id = "${var.delegation_set}"
+}
+
+resource "aws_route53_record" "dev" {
+  name    = "dev.${var.domain_name}.tk"
+  type    = "A"
+  zone_id = "${aws_route53_zone.primary.id}"
+
+  alias {
+    name                   = "${aws_elb.example_elb.dns_name}"
+    zone_id                = "${aws_elb.example_elb.zone_id}"
+    evaluate_target_health = false
+  }
+}

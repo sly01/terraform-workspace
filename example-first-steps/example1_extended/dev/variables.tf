@@ -9,3 +9,11 @@ variable "instance_count" {
   description = "Number of instances"
   default     = 2
 }
+
+variable "domain_name" {
+  description = "Domain name like: aerkoc, merkoc"
+}
+
+variable "delegation_set" {
+  description = "Delegation set for keeping exact ns for route53"
+}
