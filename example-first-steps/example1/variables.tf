@@ -4,3 +4,8 @@ variable "sg_description" {
 variable "web_port" {
   description = "Your web server port"
 }
+
+variable "instance_count" {
+  description = "Number of instances"
+  default     = 2
+}

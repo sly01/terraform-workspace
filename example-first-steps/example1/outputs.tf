@@ -1,11 +1,11 @@
 output "public_dns_name_of_my_machine" {
-  value = aws_instance.web.public_dns
+  value = aws_instance.web.*.public_dns
 }
 
 output "public_ip_of_my_machine" {
-  value = aws_instance.web.public_ip
+  value = aws_instance.web.*.public_ip
 }
 
-output "my_machine" {
-  value = format("Public ip - %s\nPublic dns - %s", aws_instance.web.public_ip, aws_instance.web.public_dns)
+output "elb_public_dns_name" {
+  value = aws_elb.example_elb.dns_name
 }
