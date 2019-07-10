@@ -2,6 +2,14 @@ provider "aws" {
   region = "${var.region}"
 }
 
+terraform {
+  backend "s3" {
+    bucket = "terraform-workshop-atos"
+    key    = "state-files/something.tfstate"
+    region = "eu-central-1"
+  }
+}
+
 module "barfoo" {
   source            = "git::https://github.com/sly01/module-atos.git?ref=v0.0.2"
   dns_zone_creation = "${var.dns_zone_creation}"
