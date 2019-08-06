@@ -12,7 +12,6 @@ variable "environment" {
 variable "max_size" {
   description = "Number of max instance for asg"
 }
-
 variable "min_size" {
   description = "Number of min instance for asg"
   default     = 2
@@ -20,4 +19,12 @@ variable "min_size" {
 
 variable "web_port" {
   description = "Web access port for instances"
+}
+
+variable "domain_name" {
+  description = "Domain name which is given by tk"
+}
+
+variable "delegation_set" {
+  description = "Route53 delegation set"
 }
