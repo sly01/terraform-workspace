@@ -17,4 +17,7 @@ resource "aws_instance" "ubuntu-server" {
   echo "Hello from Atos Bydgoszcz --- ${var.environment}" > index.html
   nohup busybox httpd -f -p "${var.web_port}" &
   EOF
+  tags = {
+    Name = "${var.environment}"
+  }
 }
