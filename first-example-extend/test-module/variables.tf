@@ -30,6 +30,6 @@ variable "delegation_set" {
 }
 
 variable "dns_zone_creation" {
-  description = "DNS Zone Creation"
-  type        = bool
+  description = "Dns zone creation(true/false)"
+  type        = "bool"
 }
