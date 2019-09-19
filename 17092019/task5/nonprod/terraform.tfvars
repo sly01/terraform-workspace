@@ -1,0 +1,10 @@
+instance_size     = "t2.micro"
+web_port          = 8090
+env               = "nonprod"
+instance_count    = 5
+min_size          = 2
+max_size          = 4
+domain_name       = "atospl"
+delegation_set    = "N15TUCL1YYDVU0"
+dns_zone_creation = false
+region            = "eu-west-1"
