@@ -1,0 +1,13 @@
+{
+    "Location": "https://route53.amazonaws.com/2013-04-01/delegationset/N32P32CRELXB9T",
+    "DelegationSet": {
+        "Id": "/delegationset/N32P32CRELXB9T",
+        "CallerReference": "25092019",
+        "NameServers": [
+            "ns-1757.awsdns-27.co.uk",
+            "ns-623.awsdns-13.net",
+            "ns-462.awsdns-57.com",
+            "ns-1227.awsdns-25.org"
+        ]
+    }
+}
